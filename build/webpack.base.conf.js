@@ -2,18 +2,25 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+const vueLoaderConfig = require('./vue-loader.conf');
+// const argv = require('yargs').argv;
+const fileUrl = process.argv[2];
+console.log(fileUrl);
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+function resolve(dir) {
+
+  // console.log(path);
+  // console.log(dir);
+  // console.log(process.env);
+  return path.join(__dirname + '/src/' + fileUrl, '..', dir)
 }
 
 
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
+  context: path.resolve(__dirname + fileUrl, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/' + fileUrl + '/main.js'
   },
   output: {
     path: config.build.assetsRoot,
