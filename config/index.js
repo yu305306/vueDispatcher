@@ -4,8 +4,7 @@
 
 const path = require('path')
 const fileUrl = process.argv[2];
-console.log(__dirname + '/src/' + fileUrl);
-console.log("****");
+
 module.exports = {
   dev: {
 

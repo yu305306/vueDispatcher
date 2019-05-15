@@ -4,8 +4,23 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf');
 // const argv = require('yargs').argv;
-const fileUrl = process.argv[2];
-console.log(fileUrl);
+const proArr = process.argv;
+var fileUrl = '';
+// console.log(proArr[6]);
+// console.log(proArr[7]);
+if (proArr[2] == "--inline") {
+  if (proArr[7] == null) {
+    return console.log("没有填写对应文件地址 --env fileName");
+  } else {
+    fileUrl = proArr[7];
+  }
+} else {
+  if (proArr[2] == null) {
+    return console.log("没有填写对应文件地址 --env fileName");
+  } else {
+    fileUrl = proArr[2];
+  }
+}
 
 function resolve(dir) {
 
